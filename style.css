@@ -2609,6 +2609,12 @@ ul {
     background: var(--accent-light);
 }
 
+.footer-mrtxt{
+    font-family: var(--font-en);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
 /* ========== SCHOOL INFO PAGE RESPONSIVE ========== */
 
 @media (max-width: 1024px) {
