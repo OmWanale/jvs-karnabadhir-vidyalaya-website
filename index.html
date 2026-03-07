@@ -531,7 +531,8 @@
                 <div class="contact-form-wrapper" data-aos>
                     <h3>संदेश पाठवा</h3>
                     <p class="contact-form-subtitle">खालील फॉर्म भरा, आम्ही लवकरच तुमच्याशी संपर्क साधू. / Fill the form below and we'll get back to you.</p>
-                    <form class="contact-form" id="contactForm" novalidate>
+                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="name">पूर्ण नाव / Full Name</label>
                             <div class="input-wrapper">

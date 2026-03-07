@@ -230,33 +230,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
 
     contactForm.addEventListener('submit', e => {
-        e.preventDefault();
-
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
+        const name = contactForm.querySelector('[name="name"]').value.trim();
+        const email = contactForm.querySelector('[name="email"]').value.trim();
+        const message = contactForm.querySelector('[name="message"]').value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!name) {
+            e.preventDefault();
             alert('कृपया आपले नाव प्रविष्ट करा.\nPlease enter your name.');
-            contactForm.name.focus();
+            contactForm.querySelector('[name="name"]').focus();
             return;
         }
 
         if (!email || !emailRegex.test(email)) {
+            e.preventDefault();
             alert('कृपया वैध ईमेल प्रविष्ट करा.\nPlease enter a valid email.');
-            contactForm.email.focus();
+            contactForm.querySelector('[name="email"]').focus();
             return;
         }
 
         if (!message) {
+            e.preventDefault();
             alert('कृपया आपला संदेश लिहा.\nPlease enter your message.');
-            contactForm.message.focus();
+            contactForm.querySelector('[name="message"]').focus();
             return;
         }
 
-        alert('धन्यवाद! आपला संदेश पाठवला गेला आहे.\nThank you! Your message has been sent.');
-        contactForm.reset();
+        // Validation passed — allow native form submission to Netlify
     });
 
 
