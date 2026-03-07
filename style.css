@@ -116,19 +116,17 @@ ul {
 .logo-icon {
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--primary) 0%, #5b9bd5 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     font-size: 19px;
-    box-shadow: 0 4px 12px rgba(58, 123, 213, 0.3);
     transition: var(--transition);
 }
 
 .nav-logo:hover .logo-icon {
-    transform: rotate(-5deg) scale(1.05);
+    transform: rotate(-360deg) scale(1.05);
 }
 
 .logo-text {
