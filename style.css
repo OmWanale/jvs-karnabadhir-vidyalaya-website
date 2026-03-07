@@ -148,6 +148,7 @@ ul {
     font-size: 11px;
     color: var(--text-light);
     font-weight: 500;
+    font-family: "Roboto", var(--font-en), sans-serif;
 }
 
 .nav-menu {
