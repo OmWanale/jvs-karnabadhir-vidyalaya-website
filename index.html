@@ -531,7 +531,7 @@
                 <div class="contact-form-wrapper" data-aos>
                     <h3>संदेश पाठवा</h3>
                     <p class="contact-form-subtitle">खालील फॉर्म भरा, आम्ही लवकरच तुमच्याशी संपर्क साधू. / Fill the form below and we'll get back to you.</p>
-                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true">
                         <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="name">पूर्ण नाव / Full Name</label>
@@ -617,6 +617,15 @@
     <button class="back-to-top" id="backToTop" aria-label="वर जा">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Success Toast Popup -->
+    <div class="toast-popup" id="toastPopup">
+        <div class="toast-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="toast-text">
+            <p class="toast-mr">धन्यवाद! तुमचा संदेश यशस्वीरित्या पाठवला गेला आहे.</p>
+            <p class="toast-en">Thank you! Your message has been sent successfully.</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

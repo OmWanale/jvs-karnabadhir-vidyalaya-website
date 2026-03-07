@@ -226,37 +226,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ========== CONTACT FORM VALIDATION ==========
+    // ========== CONTACT FORM WITH TOAST POPUP ==========
     const contactForm = document.getElementById('contactForm');
+    const toast = document.getElementById('toastPopup');
+
+    function showToast() {
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
 
     contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+
         const name = contactForm.querySelector('[name="name"]').value.trim();
         const email = contactForm.querySelector('[name="email"]').value.trim();
         const message = contactForm.querySelector('[name="message"]').value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!name) {
-            e.preventDefault();
             alert('कृपया आपले नाव प्रविष्ट करा.\nPlease enter your name.');
             contactForm.querySelector('[name="name"]').focus();
             return;
         }
 
         if (!email || !emailRegex.test(email)) {
-            e.preventDefault();
             alert('कृपया वैध ईमेल प्रविष्ट करा.\nPlease enter a valid email.');
             contactForm.querySelector('[name="email"]').focus();
             return;
         }
 
         if (!message) {
-            e.preventDefault();
             alert('कृपया आपला संदेश लिहा.\nPlease enter your message.');
             contactForm.querySelector('[name="message"]').focus();
             return;
         }
 
-        // Validation passed — allow native form submission to Netlify
+        // Submit to Netlify via fetch (no redirect)
+        const formData = new FormData(contactForm);
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            contactForm.reset();
+            showToast();
+        })
+        .catch(() => {
+            alert('काहीतरी चूक झाली. कृपया पुन्हा प्रयत्न करा.\nSomething went wrong. Please try again.');
+        });
     });
 
 
