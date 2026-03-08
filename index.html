@@ -367,73 +367,130 @@
             </div>
             <div class="gallery-filter">
                 <button class="filter-btn active" data-filter="all">सर्व / All</button>
-                <button class="filter-btn" data-filter="events">कार्यक्रम / Events</button>
-                <button class="filter-btn" data-filter="classroom">वर्गखोली / Classroom</button>
+                <button class="filter-btn" data-filter="training">प्रशिक्षण / Training</button>
                 <button class="filter-btn" data-filter="activities">उपक्रम / Activities</button>
+                <button class="filter-btn" data-filter="events">कार्यक्रम / Events</button>
+                <button class="filter-btn" data-filter="celebrations">उत्सव / Celebrations</button>
+                <button class="filter-btn" data-filter="awareness">जागरूकता / Awareness</button>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="events" data-aos>
-                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=300&fit=crop" alt="शाळेचा वार्षिक दिन" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>वार्षिक दिन</h4>
-                        <p>Annual Day Celebration</p>
+            <div class="gallery-scroll-container" id="galleryScrollContainer">
+                <div class="gallery-grid">
+                    <!-- Training -->
+                    <div class="gallery-item" data-category="training" data-aos>
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop" alt="शिवणकाम प्रशिक्षण" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>शिवणकाम प्रशिक्षण</h4>
+                            <p>Students participating in tailoring training</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="classroom" data-aos>
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop" alt="वर्गातील शिक्षण" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>परस्परसंवादी शिक्षण</h4>
-                        <p>Interactive Learning</p>
+                    <div class="gallery-item" data-category="training" data-aos>
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=300&fit=crop" alt="मेणबत्ती बनविणे" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>मेणबत्ती बनविणे</h4>
+                            <p>Candle making training session</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="activities" data-aos>
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=300&fit=crop" alt="कला आणि हस्तकला" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>कला आणि हस्तकला</h4>
-                        <p>Art &amp; Craft</p>
+                    <div class="gallery-item" data-category="training" data-aos>
+                        <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=400&h=300&fit=crop" alt="दिवे / पणत्या बनविणे" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>दिवे / पणत्या बनविणे</h4>
+                            <p>Diya and Panti making by students</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="events" data-aos>
-                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop" alt="सांस्कृतिक कार्यक्रम" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>सांस्कृतिक कार्यक्रम</h4>
-                        <p>Cultural Program</p>
+                    <!-- Activities -->
+                    <div class="gallery-item" data-category="activities" data-aos>
+                        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=300&fit=crop" alt="कला आणि चित्रकला" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>कला आणि चित्रकला</h4>
+                            <p>Art and drawing activities by students</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="events" data-aos>
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop" alt="क्रीडा दिन" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>क्रीडा दिन</h4>
-                        <p>Sports Day</p>
+                    <div class="gallery-item" data-category="activities" data-aos>
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400&h=300&fit=crop" alt="हस्तकला उपक्रम" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>हस्तकला उपक्रम</h4>
+                            <p>Craft activities conducted by students</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="classroom" data-aos>
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop" alt="सामूहिक अभ्यास" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>सामूहिक अभ्यास</h4>
-                        <p>Group Study</p>
+                    <div class="gallery-item" data-category="activities" data-aos>
+                        <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop" alt="वारली पेंटिंग उपक्रम" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>वारली पेंटिंग उपक्रम</h4>
+                            <p>Warli painting activity by students</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="activities" data-aos>
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop" alt="बाह्य उपक्रम" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>बाह्य शिक्षण</h4>
-                        <p>Outdoor Learning</p>
+                    <!-- Events -->
+                    <div class="gallery-item" data-category="events" data-aos>
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=300&fit=crop" alt="मायबोली दिवस" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>मायबोली दिवस</h4>
+                            <p>Mayboli Divas celebration at school</p>
+                        </div>
                     </div>
-                </div>
-                <div class="gallery-item" data-category="events" data-aos>
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c476?w=400&h=300&fit=crop" alt="प्रजासत्ताक दिन" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
-                        <h4>प्रजासत्ताक दिन</h4>
-                        <p>Republic Day</p>
+                    <div class="gallery-item" data-category="events" data-aos>
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=300&fit=crop" alt="योग दिवस" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>योग दिवस</h4>
+                            <p>Yoga Day celebrated with students</p>
+                        </div>
+                    </div>
+                    <!-- Celebrations -->
+                    <div class="gallery-item" data-category="celebrations" data-aos>
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c476?w=400&h=300&fit=crop" alt="प्रजासत्ताक दिन" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>प्रजासत्ताक दिन</h4>
+                            <p>Republic Day celebration at the school</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="celebrations" data-aos>
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop" alt="अपंग दिन उत्सव" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>अपंग दिन उत्सव</h4>
+                            <p>Handicapped Day celebration with students</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="celebrations" data-aos>
+                        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop" alt="वार्षिक दिन सांस्कृतिक कार्यक्रम" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>वार्षिक दिन सांस्कृतिक कार्यक्रम</h4>
+                            <p>Annual Day cultural program</p>
+                        </div>
+                    </div>
+                    <!-- Awareness -->
+                    <div class="gallery-item" data-category="awareness" data-aos>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop" alt="रक्त तपासणी शिबिर" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>रक्त तपासणी शिबिर</h4>
+                            <p>Blood checkup camp organized for students</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="awareness" data-aos>
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop" alt="नशा मुक्ती अभियान जागरूकता" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>नशा मुक्ती अभियान</h4>
+                            <p>Nasha Mukta Abhiyan awareness program</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-category="awareness" data-aos>
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop" alt="आरोग्य जागरूकता कार्यक्रम" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-zoom"><i class="fas fa-search-plus"></i></div>
+                            <h4>आरोग्य जागरूकता</h4>
+                            <p>Health awareness program for students</p>
+                        </div>
                     </div>
                 </div>
             </div>

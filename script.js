@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== GALLERY FILTER ==========
     const filterBtns = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const scrollContainer = document.getElementById('galleryScrollContainer');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -165,9 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const filter = btn.dataset.filter;
             galleryItems.forEach(item => {
-                const match = filter === 'all' || item.dataset.category === filter;
-                item.classList.toggle('hidden', !match);
+                const category = item.dataset.category;
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('gallery-hidden');
+                    item.classList.add('gallery-visible');
+                } else {
+                    item.classList.remove('gallery-visible');
+                    item.classList.add('gallery-hidden');
+                }
             });
+
+            if (scrollContainer) {
+                scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     });
 
@@ -176,31 +187,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('.lightbox-content img');
     const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-    const visibleItems = () => [...galleryItems].filter(i => !i.classList.contains('hidden'));
+    const visibleItems = () => [...galleryItems].filter(i => !i.classList.contains('gallery-hidden'));
     let lightboxIndex = 0;
 
     function openLightbox(index) {
         const items = visibleItems();
         if (index < 0 || index >= items.length) return;
         lightboxIndex = index;
-        const img = items[index].querySelector('img');
-        const title = items[index].querySelector('.gallery-overlay h4');
+        const item = items[index];
+        const img = item.querySelector('img');
+        const overlayH4 = item.querySelector('.gallery-overlay h4');
+        const overlayP = item.querySelector('.gallery-overlay p');
+        const captionText = (overlayH4 ? overlayH4.textContent : '') +
+            (overlayP ? ' — ' + overlayP.textContent : '');
         lightboxImg.src = img.src.replace(/w=400&h=300/, 'w=1200&h=900');
         lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = title ? title.textContent : '';
+        lightboxCaption.textContent = captionText;
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+        updateLightboxNav();
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        lightboxImg.src = '';
     }
 
     function lightboxNav(dir) {
         const items = visibleItems();
-        lightboxIndex = (lightboxIndex + dir + items.length) % items.length;
-        openLightbox(lightboxIndex);
+        const newIndex = lightboxIndex + dir;
+        if (newIndex >= 0 && newIndex < items.length) {
+            openLightbox(newIndex);
+        }
+    }
+
+    function updateLightboxNav() {
+        const items = visibleItems();
+        const prevBtn = lightbox.querySelector('.lightbox-prev');
+        const nextBtn = lightbox.querySelector('.lightbox-next');
+        if (prevBtn) prevBtn.style.display = lightboxIndex > 0 ? 'flex' : 'none';
+        if (nextBtn) nextBtn.style.display = lightboxIndex < items.length - 1 ? 'flex' : 'none';
     }
 
     galleryItems.forEach((item, i) => {
@@ -211,8 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => lightboxNav(-1));
-    lightbox.querySelector('.lightbox-next').addEventListener('click', () => lightboxNav(1));
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', (e) => { e.stopPropagation(); lightboxNav(-1); });
+    lightbox.querySelector('.lightbox-next').addEventListener('click', (e) => { e.stopPropagation(); lightboxNav(1); });
 
     lightbox.addEventListener('click', e => {
         if (e.target === lightbox) closeLightbox();
@@ -224,6 +251,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') lightboxNav(-1);
         if (e.key === 'ArrowRight') lightboxNav(1);
     });
+
+    // Touch/swipe support for lightbox
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) lightboxNav(1);
+            else lightboxNav(-1);
+        }
+    }, { passive: true });
 
 
     // ========== CONTACT FORM WITH TOAST POPUP ==========
